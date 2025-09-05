@@ -47,9 +47,14 @@
 
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>Consultas Registradas</h2>
-            <a href="{{ route('consultations.create') }}" class="btn btn-primary btn-add">
-                <i class="bi bi-plus-circle"></i> Nueva Consulta
-            </a>
+            <div>
+                <a href="{{ route('home') }}" class="btn btn-outline-secondary me-2">
+                    <i class="bi bi-arrow-counterclockwise"></i> Actualizar
+                </a>
+                <a href="{{ route('consultations.create') }}" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Nueva Consulta
+                </a>
+            </div>
         </div>
 
         @if($consultations->count() > 0)
@@ -57,7 +62,12 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <span>{{ $consultation->name }}</span>
-                        <small class="text-muted">{{ $consultation->created_at->format('d/m/Y H:i') }}</small>
+                        <div>
+                            <a href="{{ route('consultations.download', $consultation) }}" class="btn btn-sm btn-outline-primary me-2">
+                                <i class="bi bi-download"></i> PDF
+                            </a>
+                            <small class="text-muted">{{ $consultation->created_at->format('d/m/Y H:i') }}</small>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">

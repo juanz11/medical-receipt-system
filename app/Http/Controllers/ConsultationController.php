@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Consultation;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ConsultationController extends Controller
 {
@@ -31,9 +32,18 @@ class ConsultationController extends Controller
         // Ensure the date is properly formatted
         $validated['consultation_date'] = \Carbon\Carbon::parse($validated['consultation_date']);
 
-        Consultation::create($validated);
+        $consultation = Consultation::create($validated);
 
-        return redirect()->route('home')
+        return redirect()->route('consultations.download', $consultation)
                          ->with('success', 'Consulta registrada exitosamente');
+    }
+
+    /**
+     * Download consultation as PDF
+     */
+    public function download(Consultation $consultation)
+    {
+        $pdf = PDF::loadView('consultations.pdf', compact('consultation'));
+        return $pdf->download('consulta-' . $consultation->id . '-' . now()->format('Y-m-d') . '.pdf');
     }
 }
