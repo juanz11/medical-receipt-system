@@ -34,7 +34,8 @@ class ConsultationController extends Controller
 
         $consultation = Consultation::create($validated);
 
-        return redirect()->route('consultations.download', $consultation)
+        // Redirect to a page that will open the PDF, auto-print it, and return to home
+        return redirect()->route('consultations.print', $consultation)
                          ->with('success', 'Consulta registrada exitosamente');
     }
 
@@ -45,5 +46,22 @@ class ConsultationController extends Controller
     {
         $pdf = PDF::loadView('consultations.pdf', compact('consultation'));
         return $pdf->download('consulta-' . $consultation->id . '-' . now()->format('Y-m-d') . '.pdf');
+    }
+
+    /**
+     * Stream consultation as inline PDF (for embedding/printing in browser)
+     */
+    public function stream(Consultation $consultation)
+    {
+        $pdf = PDF::loadView('consultations.pdf', compact('consultation'));
+        return $pdf->stream('consulta-' . $consultation->id . '-' . now()->format('Y-m-d') . '.pdf');
+    }
+
+    /**
+     * Show a page that embeds the PDF, triggers print, and then returns to home
+     */
+    public function print(Consultation $consultation)
+    {
+        return view('consultations.print', compact('consultation'));
     }
 }
