@@ -97,6 +97,18 @@
             <div class="info-label">Nombre:</div>
             <div>{{ $consultation->name }}</div>
         </div>
+        @if($consultation->age)
+        <div class="info-row">
+            <div class="info-label">Edad:</div>
+            <div>{{ $consultation->age }} años</div>
+        </div>
+        @endif
+        @if($consultation->gender)
+        <div class="info-row">
+            <div class="info-label">Sexo:</div>
+            <div>{{ $consultation->gender }}</div>
+        </div>
+        @endif
         <div class="info-row">
             <div class="info-label">Cédula:</div>
             <div>{{ $consultation->id_number }}</div>

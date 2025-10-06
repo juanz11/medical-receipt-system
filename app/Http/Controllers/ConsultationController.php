@@ -22,6 +22,8 @@ class ConsultationController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'age' => 'nullable|integer|min:0|max:150',
+            'gender' => 'nullable|string|max:20',
             'id_number' => 'required|string|max:20',
             'phone' => 'required|string|max:20',
             'address' => 'required|string|max:255',

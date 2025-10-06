@@ -8,6 +8,8 @@ class Consultation extends Model
 {
     protected $fillable = [
         'name',
+        'age',
+        'gender',
         'id_number',
         'phone',
         'address',

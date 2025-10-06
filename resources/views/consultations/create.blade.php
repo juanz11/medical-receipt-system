@@ -78,6 +78,21 @@
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
+                                <label for="age" class="form-label">Edad</label>
+                                <input type="number" class="form-control" id="age" name="age" min="0" max="150" placeholder="Edad del paciente">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="gender" class="form-label">Sexo</label>
+                                <select class="form-select" id="gender" name="gender">
+                                    <option value="">Seleccione...</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
                                 <label for="id_number" class="form-label">Cédula</label>
                                 <input type="text" class="form-control" id="id_number" name="id_number" required>
                             </div>
@@ -106,7 +121,7 @@
                                 <label for="visit_type" class="form-label">Tipo de Visita</label>
                                 <select class="form-select" id="visit_type" name="visit_type">
                                     <option value="">Seleccione...</option>
-                                    <option value="Una Llamada una Vida"> Una Llamada una Vida < /option>
+                                    <option value="Una Llamada una Vida"> Una Llamada una Vida </option>
                                     <option value="Fundación">Fundación</option>
                                 </select>
                             </div>
