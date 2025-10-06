@@ -26,6 +26,8 @@ class ConsultationController extends Controller
             'phone' => 'required|string|max:20',
             'address' => 'required|string|max:255',
             'consultation_date' => 'required|date',
+            'seen_by' => 'nullable|string|max:255',
+            'visit_type' => 'nullable|string|max:50',
             'description' => 'required|string',
         ]);
 

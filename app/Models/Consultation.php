@@ -12,6 +12,8 @@ class Consultation extends Model
         'phone',
         'address',
         'consultation_date',
+        'seen_by',
+        'visit_type',
         'description'
     ];
 

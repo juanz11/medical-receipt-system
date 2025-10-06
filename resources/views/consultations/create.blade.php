@@ -97,6 +97,21 @@
                             <input type="date" class="form-control" id="consultation_date" name="consultation_date" value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}" required>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="seen_by" class="form-label">¿Con quién se vio?</label>
+                                <input type="text" class="form-control" id="seen_by" name="seen_by" placeholder="Nombre del médico o profesional">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="visit_type" class="form-label">Tipo de Visita</label>
+                                <select class="form-select" id="visit_type" name="visit_type">
+                                    <option value="">Seleccione...</option>
+                                    <option value="Una Llamada una Vida"> Una Llamada una Vida < /option>
+                                    <option value="Fundación">Fundación</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="mb-3">
                             <label for="description" class="form-label">Descripción de la Consulta</label>
                             <textarea class="form-control" id="description" name="description" rows="4" required></textarea>

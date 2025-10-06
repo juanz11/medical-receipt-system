@@ -8,6 +8,22 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background-image: url('{{ public_path('logo-david-04-002-scaled.webp') }}');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.08;
+            z-index: -1;
         }
         .header {
             text-align: center;
@@ -97,6 +113,18 @@
             <div class="info-label">Fecha de Consulta:</div>
             <div>{{ \Carbon\Carbon::parse($consultation->consultation_date)->format('d/m/Y') }}</div>
         </div>
+        @if($consultation->seen_by)
+        <div class="info-row">
+            <div class="info-label">Atendido por:</div>
+            <div>{{ $consultation->seen_by }}</div>
+        </div>
+        @endif
+        @if($consultation->visit_type)
+        <div class="info-row">
+            <div class="info-label">Tipo de Visita:</div>
+            <div>{{ $consultation->visit_type }}</div>
+        </div>
+        @endif
     </div>
 
     <div class="consultation-details">
