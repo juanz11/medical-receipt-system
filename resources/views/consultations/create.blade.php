@@ -70,7 +70,7 @@
                 <div class="form-container">
                     <form method="POST" action="{{ route('consultations.store') }}">
                         @csrf
-                        
+
                         <div class="mb-3">
                             <label for="name" class="form-label">Nombre Completo</label>
                             <input type="text" class="form-control" id="name" name="name" required>
@@ -122,6 +122,9 @@
                                 <select class="form-select" id="visit_type" name="visit_type">
                                     <option value="">Seleccione...</option>
                                     <option value="Una Llamada una Vida"> Una Llamada una Vida </option>
+                                     <option value="unada">Una llamada una vida (Fines de semana) </option>
+                                                                          <option value="unada">Mente Y Salud </option>
+
                                     <option value="Fundación">Fundación</option>
                                 </select>
                             </div>

@@ -27,12 +27,12 @@
             position: fixed;
             top: 50%;
             left: 50%;
-            width: 400px;
-            height: 400px;
-            margin-left: -200px;
-            margin-top: -200px;
-            opacity: 0.08;
-            z-index: -1;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
         }
         
         .container {
@@ -45,10 +45,28 @@
         }
         
         .header-logo {
-            text-align: center;
+            display: table;
+            width: 100%;
             margin-bottom: 10px;
             padding-bottom: 8px;
             border-bottom: 2px solid #0d6efd;
+        }
+        
+        .header-logo-image {
+            display: table-cell;
+            width: 80px;
+            vertical-align: middle;
+            padding-right: 15px;
+        }
+        
+        .header-logo-image img {
+            width: 80px;
+            height: auto;
+        }
+        
+        .header-logo-text {
+            display: table-cell;
+            vertical-align: middle;
         }
         
         .header-logo h1 {
@@ -180,14 +198,19 @@
     </style>
 </head>
 <body>
-    <img src="{{ public_path('logo-david-04-002-scaled.webp') }}" class="watermark" alt="">
+    <img src="{{ public_path('ISOTIPO-scaled.webp') }}" class="watermark" alt="">
     <div class="container">
         <div class="header-logo">
-            <h1>UNA LLAMADA UNA VIDA</h1>
-            <div class="contact-info">
-                <p>Av. Andrés Eloy Blanco, Edificio Centro Profesional Prebo, Piso 2, Of. 2-04</p>
-                <p>Urb. Prebo, Valencia, Carabobo Zona Postal 2001 - Venezuela</p>
-                <p>Teléfono: 0414-4265181</p>
+            <div class="header-logo-image">
+                <img src="{{ public_path('ISOTIPO-scaled.webp') }}" alt="Logo">
+            </div>
+            <div class="header-logo-text">
+                <h1>UNA LLAMADA UNA VIDA</h1>
+                <div class="contact-info">
+                    <p>Av. Andrés Eloy Blanco, Edificio Centro Profesional Prebo, Piso 2, Of. 2-04</p>
+                    <p>Urb. Prebo, Valencia, Carabobo Zona Postal 2001 - Venezuela</p>
+                    <p>Teléfono: 0414-4265181</p>
+                </div>
             </div>
         </div>
 
