@@ -19,19 +19,27 @@
             line-height: 1.3;
             color: #2c3e50;
             position: relative;
-            background-image: url('{{ public_path('logo-david-04-002-scaled.webp') }}');
-            background-size: 350px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
             padding: 10px;
             font-size: 11px;
+        }
+        
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-left: -200px;
+            margin-top: -200px;
+            opacity: 0.08;
+            z-index: -1;
         }
         
         .container {
             max-width: 100%;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
+            position: relative;
+            z-index: 1;
             padding: 15px;
             border-radius: 5px;
         }
@@ -172,6 +180,7 @@
     </style>
 </head>
 <body>
+    <img src="{{ public_path('logo-david-04-002-scaled.webp') }}" class="watermark" alt="">
     <div class="container">
         <div class="header-logo">
             <h1>UNA LLAMADA UNA VIDA</h1>
